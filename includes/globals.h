@@ -1,0 +1,14 @@
+#ifndef GLOBALS
+#define GLOBALS
+
+extern char board[3][3];
+
+extern int game_status; // If != 0 program teminates
+extern int board_coordinates[2];
+
+extern int game_state; 
+
+extern char global_input[10];
+extern int current_input_validity;
+
+#endif
