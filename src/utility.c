@@ -14,3 +14,11 @@ void exit_game() {
     exit(0);
 
 }
+
+int generate_rand_num_in_range(int min, int max) {
+
+    int random_number = (rand() % (max - min + 1)) + min;
+
+    return random_number;
+
+}

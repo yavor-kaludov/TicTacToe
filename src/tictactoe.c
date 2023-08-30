@@ -8,10 +8,13 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <time.h>
 
 // Main Game Loop
 
 int main () {
+
+    srand(time(NULL)); // seeding random num generator
 
     while (game_status == 0) {
 
@@ -31,6 +34,7 @@ int main () {
             printf("IN: Game State 1!\n");
 
             player_move();
+            show_board();
             printf("\n"); // padding below
 
             printf("OUT: Game State 1!\n");
@@ -39,9 +43,12 @@ int main () {
             printf("IN: Game State 2!\n");
 
             ai_move();
+            show_board();
             printf("\n"); // padding below
 
             printf("OUT: Game State 2!\n");
+
+            // game_status = 1;
 
         } else if (game_status != 0) {
             printf("\nmaybe you won?");
