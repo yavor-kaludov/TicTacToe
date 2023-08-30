@@ -2,23 +2,33 @@
 #include "globals.h"
 #include "game_logic.h"
 #include "utility.h"
+#include "visual_spice.h"
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 void ai_move() {  // Computer place down X
     // check where there are player pieces and create a range
     // place a piece on a random number in the range
 
-    printf("AI's turn...\n");
+    printf("\n"); // padding 
+    
+    printf("AI's turn.\n \n");
+    sleep(1);
+
+    print_processing_animation();
+
 
     // main func goes here 
     // (check for player placements)
     // (update board coords first using rand numbers)
 
     ai_choose_board_coordinates();
+    sleep(1);
     
     update_board();
+    sleep(1);
 
     game_state = 1; // hands over turn back to player
 

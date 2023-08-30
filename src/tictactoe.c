@@ -9,6 +9,8 @@
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
+#include <unistd.h>
+
 
 // Main Game Loop
 
@@ -20,33 +22,44 @@ int main () {
 
         if (game_state == 0) {
 
-            printf("IN: Game State 0!\n");
+            printf("\tIN: Game State 0!\n");
         
             start_game();
 
+            printf("\n"); // padding above
+
             show_board();
+
+            printf("\n"); // padding below
+
+            printf("\tOUT: Game State 0!\n");
+        
+        } else if (game_state == 1) {
+            printf("\tIN: Game State 1!\n");
+
+            player_move();
 
             printf("\n"); // padding above
 
-            printf("OUT: Game State 0!\n");
-        
-        } else if (game_state == 1) {
-            printf("IN: Game State 1!\n");
-
-            player_move();
             show_board();
+
             printf("\n"); // padding below
 
-            printf("OUT: Game State 1!\n");
+            printf("\tOUT: Game State 1!\n");
 
         } else if (game_state == 2) {
-            printf("IN: Game State 2!\n");
+            printf("\tIN: Game State 2!\n");
 
             ai_move();
+            sleep(1);
+
+            printf("\n"); // padding above
+
             show_board();
+            
             printf("\n"); // padding below
 
-            printf("OUT: Game State 2!\n");
+            printf("\tOUT: Game State 2!\n");
 
             // game_status = 1;
 
