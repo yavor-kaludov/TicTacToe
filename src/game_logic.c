@@ -9,20 +9,17 @@
 
 void start_game() { // presents the welcome message, asks the player if they're ready
 
-    while (game_state == 0) {
+   while (game_state == 0) {
         printf("\nWelcome! Let's plays some Tic Tac Toe! Type 'c' to start or 'exit' to leave.\n");
-        collect_user_input();
-        evaluate_user_input();
 
-        if (strcmp(global_input, "c") == 0) {
-            game_state = 1;
-            
-        } else if (current_input_validity != 0) {
-            printf("Error: Invalid input! \n");
-            
-        }
-        
+        do {
+            collect_user_input();
+            evaluate_user_input(1, "c");
+        } while (current_input_validity != 0);
+        game_state = 1;
     }
+
+    
 
 }
 
@@ -54,6 +51,8 @@ void player_move() { // Player place down X
 
         //show_board();
 
+    current_input_validity = 0; // resets validity to 0
+
     while (current_input_validity == 0 && game_state == 1) {
         
         printf("\n"); // padding 
@@ -61,7 +60,7 @@ void player_move() { // Player place down X
         printf("Pick a row (1-3): \n");
         
         collect_user_input();
-        evaluate_user_input();
+        evaluate_user_input(3, "1", "2", "3");
 
         // function to change coords goes here <<<
         board_coordinates[0] = atoi(global_input);
@@ -71,7 +70,7 @@ void player_move() { // Player place down X
         printf("Pick a column (1-3): \n");
         
         collect_user_input();
-        evaluate_user_input();
+        evaluate_user_input(3, "1", "2", "3");
 
         // function to change coords goes here <<<
         board_coordinates[1] = atoi(global_input);

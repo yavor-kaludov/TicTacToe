@@ -10,6 +10,7 @@
 void collect_user_input() { // just collects user keyboard input
 
     scanf("%s", global_input);
+    printf("DEBUG: Global input is: %s\n", global_input);
 
 }
 
@@ -40,20 +41,24 @@ void evaluate_user_input(int num_desired_inputs, ...) { // ! refactor to accept 
     if (strcmp(global_input, "exit") == 0) {
         game_status = 1;
         exit_game();
-        return;
     }
+
+    current_input_validity = 1; // resets any to-be-evaluated user input as invalid by default before testing
 
     for (int i = 0; i < num_desired_inputs; i++) {
         char* next_input = va_arg(possible_inputs, char*);
+
         if (strcmp(global_input, next_input) == 0) {
             current_input_validity = 0; // input is valid
             break;
-        } else {
-            current_input_validity = 1; // input is invalid
-            printf("Error: INVALID INPUT!\n");
         }
-
-    va_end(possible_inputs);
     }
+    
+    if (current_input_validity == 1) {
+        printf("ERROR: Invalid Input!\n");
+    }
+    
+    
+    va_end(possible_inputs);
 }  
     
