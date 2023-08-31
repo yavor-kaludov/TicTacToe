@@ -46,7 +46,13 @@ void update_board () {  //Updates the board according to the last player input.
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
             if (board_coordinates[0] == i + 1 && board_coordinates[1] == j + 1) {
-                board[i][j] = 'X'; 
+                if (game_state == 1) {
+                    board[i][j] = 'X';
+                }
+
+                if (game_state == 2) {
+                board[i][j] = 'O';
+                }
             }
         }
     }
