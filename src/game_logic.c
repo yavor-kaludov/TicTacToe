@@ -23,8 +23,25 @@ void start_game() { // presents the welcome message, asks the player if they're 
 
 }
 
+// void update_board () {  //Updates the board according to the last player input. 
+//                         //Automatically filters out of bounds input
+
+//     for (int i = 0; i < 3; i++) {
+//         for (int j = 0; j < 3; j++) {
+//             if (board_coordinates[0] == i + 1 && board_coordinates[1] == j + 1) {
+//                 board[i][j] = 'X'; 
+//             }
+//         }
+//     }
+// }
+
 void update_board () {  //Updates the board according to the last player input. 
                         //Automatically filters out of bounds input
+// 1. checks game state
+// 2. if game state is 1, runs the function to add X
+// 3. if game state is 2, runs the function to add O
+// 4. if game state is else, do nothing and print (call to update board)
+
 
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
@@ -86,4 +103,18 @@ void player_move() { // Player place down X
 
         game_state = 2; //When done, hand the game over to the AI
     }
+}
+
+int check_board_row_availability(int row_selection, int column_selection) {
+
+    int availability;
+
+    for (int i = 0; i < 9; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (strcmp(board[i][j], "X") == 0 || strcmp(board[i][j], "O") == 0) {
+                availability = 0;
+            }
+        }
+    }
+    return availability;
 }

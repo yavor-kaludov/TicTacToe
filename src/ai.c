@@ -13,7 +13,7 @@ void ai_move() {  // Computer place down X
     // place a piece on a random number in the range
 
     printf("\n"); // padding 
-    
+
     printf("AI's turn.\n \n");
     sleep(1);
 
@@ -39,6 +39,9 @@ void ai_choose_board_coordinates() {
 
     int new_row_coords = generate_rand_num_in_range(1, 3);
     int new_column_coords = generate_rand_num_in_range(1, 3);
+
+    // here goes a function to check if board column is available it will return a 0 if true
+    // then while not true (0) the loop will run
 
     while (new_row_coords == board_coordinates[0]) {
         printf("Current ROW coordinate is %d. Trying again...\n", new_row_coords);
