@@ -105,16 +105,19 @@ void player_move() { // Player place down X
     }
 }
 
-int check_board_row_availability(int row_selection, int column_selection) {
-
-    int availability;
-
-    for (int i = 0; i < 9; i++) {
-        for (int j = 0; j < 3; j++) {
-            if (strcmp(board[i][j], "X") == 0 || strcmp(board[i][j], "O") == 0) {
-                availability = 0;
-            }
-        }
+int check_board_availability(int row_selection, int column_selection) {
+    // possibly flip the availability and check
+    int availability = 0;
+    printf("Debug: AI has chosen row %d, column %d\n", row_selection, column_selection);
+    printf("Debug: Checking Board availability.\n");
+    printf("Currently on this position is %c\n\n", board[row_selection - 1][column_selection - 1]);
+    
+    if (board[row_selection - 1][column_selection - 1] == 'X' || board[row_selection - 1][column_selection - 1] == 'O') {
+        availability = 1;
     }
+
     return availability;
 }
+    
+    
+    

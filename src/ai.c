@@ -43,13 +43,9 @@ void ai_choose_board_coordinates() {
     // here goes a function to check if board column is available it will return a 0 if true
     // then while not true (0) the loop will run
 
-    while (new_row_coords == board_coordinates[0]) {
-        printf("Current ROW coordinate is %d. Trying again...\n", new_row_coords);
+    while (check_board_availability(new_row_coords, new_column_coords) != 0) {
+        printf("random coords %d and %d overlap with existing positions. Trying again...\n", new_row_coords, new_column_coords);
         new_row_coords = generate_rand_num_in_range(1, 3);
-    }
-
-    while (new_column_coords == board_coordinates[1]) {
-        printf("Current COLUMN coordinate is %d. Trying again...\n", new_row_coords);
         new_column_coords = generate_rand_num_in_range(1, 3);
     }
 
