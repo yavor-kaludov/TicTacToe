@@ -8,6 +8,11 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+int ai_state = 0;
+// ai_state 0 is defencive play
+// ai_state 1 is offensive play
+// ai_state 2 is strategic play
+
 void ai_move() {  // Computer place down X
     // check where there are player pieces and create a range
     // place a piece on a random number in the range
@@ -33,10 +38,15 @@ void ai_move() {  // Computer place down X
     game_state = 1; // hands over turn back to player
 
     printf("AI has placed an O at row %d, column %d!\n", board_coordinates[0], board_coordinates[1]);
+
+    convert_symbol_in_board_to_number('X', board_converted);
+
 }
 
 void ai_choose_board_coordinates() {
 
+    // this will be replaced by a function that calculates the optimal move for the AI.
+    // This may be in a separete file called AI_logic.. perhaps
     int new_row_coords = generate_rand_num_in_range(1, 3);
     int new_column_coords = generate_rand_num_in_range(1, 3);
 
@@ -52,3 +62,4 @@ void ai_choose_board_coordinates() {
     board_coordinates[0] = new_row_coords;
     board_coordinates[1] = new_column_coords;
 }
+

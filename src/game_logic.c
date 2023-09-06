@@ -23,18 +23,6 @@ void start_game() { // presents the welcome message, asks the player if they're 
 
 }
 
-// void update_board () {  //Updates the board according to the last player input. 
-//                         //Automatically filters out of bounds input
-
-//     for (int i = 0; i < 3; i++) {
-//         for (int j = 0; j < 3; j++) {
-//             if (board_coordinates[0] == i + 1 && board_coordinates[1] == j + 1) {
-//                 board[i][j] = 'X'; 
-//             }
-//         }
-//     }
-// }
-
 void update_board () {  //Updates the board according to the last player input. 
                         //Automatically filters out of bounds input
 // 1. checks game state
@@ -124,6 +112,25 @@ int check_board_availability(int row_selection, int column_selection) {
 
     return availability;
 }
+
+void convert_symbol_in_board_to_number(char symbol, int nums_array[3][3]) {
+
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (board[i][j] == symbol) {
+                nums_array[i][j] = 1;
+            } else {
+                nums_array[i][j] = 0;
+            }
+        }
+    }
+
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            printf("%d ", nums_array[i][j]);
+        }
+
+        printf("\n");
     
-    
-    
+    }
+}
