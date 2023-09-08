@@ -125,6 +125,8 @@ void convert_symbol_in_board_to_number(char symbol, int nums_array[3][3]) {
         }
     }
 
+    // this part prints the array
+
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
             printf("%d ", nums_array[i][j]);
@@ -134,3 +136,60 @@ void convert_symbol_in_board_to_number(char symbol, int nums_array[3][3]) {
     
     }
 }
+
+void deconstruct_board_states() {
+
+    int row1[3];
+    int row2[3];
+    int row3[3];
+    int column1[3];
+    int column2[3];
+    int column3[3];
+    // int diagonal1[3];
+    // int diagonal2[3];
+    
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (i == 0) {
+                row1[j] = board_converted[i][j];
+            }
+            if (i == 1) {
+                row2[j] = board_converted[i][j];
+            }
+            if (i == 2) {
+                row3[j] = board_converted[i][j];
+            }
+            if (j == 0) {
+                column1[i] = board_converted[i][j];
+            }
+            if (j == 0) {
+                column2[i] = board_converted[i][j];
+            }
+            if (j == 0) {
+                column3[i] = board_converted[i][j];
+            }
+        }
+    }
+
+    for (int b = 0; b < 3; b++) {
+        printf("%d", row1[b]);
+    }
+    for (int b = 0; b < 3; b++) {
+        printf("%d", row2[b]);
+    }
+    for (int b = 0; b < 3; b++) {
+        printf("%d", row3[b]);
+    }
+    for (int b = 0; b < 3; b++) {
+        printf("%d", column1[b]);
+    }
+    for (int b = 0; b < 3; b++) {
+        printf("%d", column2[b]);
+    }
+    for (int b = 0; b < 3; b++) {
+        printf("%d", column3[b]);
+    }
+    
+}
+
+// maybe a function takes the returns from this one as options.. 

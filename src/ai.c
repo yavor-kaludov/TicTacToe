@@ -41,6 +41,8 @@ void ai_move() {  // Computer place down X
 
     convert_symbol_in_board_to_number('X', board_converted);
 
+    deconstruct_board_states();
+
 }
 
 void ai_choose_board_coordinates() {
@@ -63,3 +65,7 @@ void ai_choose_board_coordinates() {
     board_coordinates[1] = new_column_coords;
 }
 
+// void ai_look_for_2_of_3() {
+
+//     // 1. Check 
+// }
