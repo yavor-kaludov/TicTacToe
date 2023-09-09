@@ -44,11 +44,15 @@ void ai_move() {  // Computer place down X
     deconstruct_board_states();
     printf("\n"); // padding 
 
-    for (int i = 0; i < 6; i++) {
+    for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 3; j++) {
             printf("%d, ", block_collection_array[i][j]);
         }
     }
+
+    set_ai_state();
+    printf("AI state is %d \n", ai_state);
+    printf("Target block is at index %d \n", set_ai_state());
 
 }
 
@@ -72,7 +76,42 @@ void ai_choose_board_coordinates() {
     board_coordinates[1] = new_column_coords;
 }
 
-void ai_look_for_2_of_3() {
+int set_ai_state() { // inclomplete funciton
 
-    // 1. Chec
+    // Check each block by 
+    // 1. there are sum of 2
+    int biggest_counter = 0;
+    int index_of_block_checked;
+
+
+    for (int i = 0; i < 8; i++) {
+        int counter = 0;
+        for (int j = 0; j < 3; j++) {
+            if (block_collection_array[i][j] == 1) {
+                counter++;
+            }
+        }
+        
+        
+
+        if (biggest_counter < counter) {
+            biggest_counter = counter;
+            index_of_block_checked = i;
+        }
+    }
+
+    if (biggest_counter == 2) {
+        ai_state = 0;
+        return index_of_block_checked;
+    } else if (biggest_counter == 1) {
+        ai_state = 1;
+        return index_of_block_checked;
+    } else if (biggest_counter == 0) {
+        ai_state = 2;
+        return index_of_block_checked;
+    } else {
+        return 100;
+    }
+    
 }
+

@@ -145,8 +145,8 @@ void deconstruct_board_states() {
     int column1[3];
     int column2[3];
     int column3[3];
-    // int diagonal1[3];
-    // int diagonal2[3];
+    int diagonal1[3];
+    int diagonal2[3];
     
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
@@ -168,6 +168,14 @@ void deconstruct_board_states() {
             if (j == 2) {
                 column3[i] = board_converted[i][j];
             }
+            // Diagonal logic
+    
+            if (i == j) {
+                diagonal1[i] = board_converted[i][j];
+            }
+            if (i + j == 2) {
+                diagonal2[i] = board_converted[i][j];
+            }
         }
     }
 
@@ -188,7 +196,13 @@ void deconstruct_board_states() {
     }
     for (int b = 0; b < 3; b++) {
         printf("%d", column3[b]);
+    }   
+    for (int b = 0; b < 3; b++) {
+        printf("%d", diagonal1[b]);
     }
+    for (int b = 0; b < 3; b++) {
+        printf("%d", diagonal2[b]);
+    }   
 
     memcpy(block_collection_array[0], row1, sizeof(row1));
     memcpy(block_collection_array[1], row2, sizeof(row2));
@@ -196,6 +210,10 @@ void deconstruct_board_states() {
     memcpy(block_collection_array[3], column1, sizeof(column1));
     memcpy(block_collection_array[4], column2, sizeof(column2));
     memcpy(block_collection_array[5], column3, sizeof(column3));
+    memcpy(block_collection_array[6], diagonal1, sizeof(column3));
+    memcpy(block_collection_array[7], diagonal2, sizeof(column3));
 }
 
 // maybe a function takes the returns from this one as options.. 
+
+// void look_for_game_over_state()
