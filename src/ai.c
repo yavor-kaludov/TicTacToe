@@ -42,6 +42,13 @@ void ai_move() {  // Computer place down X
     convert_symbol_in_board_to_number('X', board_converted);
 
     deconstruct_board_states();
+    printf("\n"); // padding 
+
+    for (int i = 0; i < 6; i++) {
+        for (int j = 0; j < 3; j++) {
+            printf("%d, ", block_collection_array[i][j]);
+        }
+    }
 
 }
 
@@ -65,7 +72,7 @@ void ai_choose_board_coordinates() {
     board_coordinates[1] = new_column_coords;
 }
 
-// void ai_look_for_2_of_3() {
+void ai_look_for_2_of_3() {
 
-//     // 1. Check 
-// }
+    // 1. Chec
+}

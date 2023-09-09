@@ -162,10 +162,10 @@ void deconstruct_board_states() {
             if (j == 0) {
                 column1[i] = board_converted[i][j];
             }
-            if (j == 0) {
+            if (j == 1) {
                 column2[i] = board_converted[i][j];
             }
-            if (j == 0) {
+            if (j == 2) {
                 column3[i] = board_converted[i][j];
             }
         }
@@ -189,7 +189,13 @@ void deconstruct_board_states() {
     for (int b = 0; b < 3; b++) {
         printf("%d", column3[b]);
     }
-    
+
+    memcpy(block_collection_array[0], row1, sizeof(row1));
+    memcpy(block_collection_array[1], row2, sizeof(row2));
+    memcpy(block_collection_array[2], row3, sizeof(row3));
+    memcpy(block_collection_array[3], column1, sizeof(column1));
+    memcpy(block_collection_array[4], column2, sizeof(column2));
+    memcpy(block_collection_array[5], column3, sizeof(column3));
 }
 
 // maybe a function takes the returns from this one as options.. 

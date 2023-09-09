@@ -3,6 +3,7 @@
 
 extern char board[3][3];
 extern int board_converted[3][3];
+extern int block_collection_array[6][3];
 
 extern int game_status; // If != 0 program teminates
 extern int board_coordinates[2];
